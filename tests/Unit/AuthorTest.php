@@ -10,14 +10,27 @@ class AuthorTest extends TestCase
      *
      * @return void
      */
+    
+    public function testPage()
+    {
+
+        $this->get('/');
+        $this->assertEquals(200, $this->response->status());
+         
+    }
+
     public function testShowAllAuthors()
+    {
+
+        $this->seeInDatabase('comments', ['comment_id' => '2']);
+
+    }
+    public function testShowOneAuthors()
     {
 
         $this->seeInDatabase('authors',[
             'username'=> 'Smith72'
         ]);
-
-
-        
+  
     }
 }
