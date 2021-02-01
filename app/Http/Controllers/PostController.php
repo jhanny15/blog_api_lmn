@@ -45,9 +45,10 @@ class PostController extends Controller
         return response('Deleted Successfully', 200);
     }
 
-    public function showComments($id)
+    public function showPostTitle()
     {
-        $Post = Post::findOrFail($id);
-        return response()->json(Comment::all());
+        foreach (Post::all() as $post){
+            echo  $post->post_title. "<br />";
+        }
     }
 }

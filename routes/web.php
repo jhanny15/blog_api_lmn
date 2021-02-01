@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Controllers\PostController;
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
@@ -44,6 +43,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->put('posts/{id}', ['uses' => 'PostController@update']);
 
   $router->get('posts_comments/{id}', ['uses' => 'PostController@showComments']);
+
+  $router->get('posts/title', ['uses' => 'PostController@showPostTitle']);
 });
 
 
