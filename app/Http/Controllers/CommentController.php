@@ -44,4 +44,18 @@ class CommentController extends Controller
         Comment::findOrFail($id)->delete();
         return response('Deleted Successfully', 200);
     }
+
+    public function showPostComments($id){
+
+        foreach(Comment::all() as $comment){
+
+
+            if($comment->post_id == $id){
+
+                echo "User". $comment->author_id. ": ";
+                echo $comment->comment_text. "<br />";
+            }
+            
+        }
+    }
 }

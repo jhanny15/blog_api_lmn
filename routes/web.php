@@ -42,9 +42,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
   $router->put('posts/{id}', ['uses' => 'PostController@update']);
 
-  $router->get('posts_comments/{id}', ['uses' => 'PostController@showComments']);
-
-  $router->get('posts/title', ['uses' => 'PostController@showPostTitle']);
+  $router->get('post/title', ['uses' => 'PostController@showPostTitle']);
 });
 
 
@@ -59,4 +57,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->delete('comments/{id}', ['uses' => 'CommentController@delete']);
 
   $router->put('comments/{id}', ['uses' => 'CommentController@update']);
+
+  $router->get('comments_posts/{id}', ['uses' => 'CommentController@showPostComments']);
 });
