@@ -16,8 +16,11 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//Authors
+
 $router->group(['prefix' => 'api'], function () use ($router) {
+
+
+  //Authors
   $router->get('authors',  ['uses' => 'AuthorController@showAllAuthors']);
 
   $router->get('authors/{id}', ['uses' => 'AuthorController@showOneAuthor']);
@@ -27,11 +30,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
 
   $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
-});
 
 
-//Posts
-$router->group(['prefix' => 'api'], function () use ($router) {
+  //Posts
   $router->get('posts',  ['uses' => 'PostController@showAllPosts']);
 
   $router->get('posts/{id}', ['uses' => 'PostController@showOnePost']);
@@ -43,11 +44,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->put('posts/{id}', ['uses' => 'PostController@update']);
 
   $router->get('post/title', ['uses' => 'PostController@showPostTitle']);
-});
 
 
-//Comments
-$router->group(['prefix' => 'api'], function () use ($router) {
+  //Comments
   $router->get('comments',  ['uses' => 'CommentController@showAllComments']);
 
   $router->get('comments/{id}', ['uses' => 'CommentController@showOneComment']);
@@ -59,4 +58,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->put('comments/{id}', ['uses' => 'CommentController@update']);
 
   $router->get('comments_posts/{id}', ['uses' => 'CommentController@showPostComments']);
+
 });
