@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-
+    
     public function showAllAuthors()
     {
         return response()->json(Author::all());
